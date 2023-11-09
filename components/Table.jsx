@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { BiEdit, BiTrashAlt } from "react-icons/bi";
 import ReactPaginate from 'react-paginate'
+import './pagination.css'
 
 export default function Table({ isError, isLoading, employees, handleEdit, handleDelete }) {
 
