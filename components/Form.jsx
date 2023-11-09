@@ -134,33 +134,15 @@ const Form = ({isError, type, createEmployee,findData ,updateEmployee,isLoading}
                   
                   {/* Profile*/}
           <div className="w-full">
-            <h3 className="text-lg font-semibold">Profile Img *</h3>
-            {/* <div className="flex justify-between items-center gap-2 border-b-2 border-gray-600 py-4 w-full">         
-              <input
-                type="file"
-                id="profile_image"
-                {...register("profile_image", {
-                  required: "userimage is required",
-                  pattern: {
-                    value: /^.*\.(jpg|JPG|gif|GIF|doc|DOC|pdf|PDF)$/,
-                    message: "Please enter a valid file",
-                  },
-                })}
-                name="profile_image"
-                className="focus:border-none focus:outline-none"
-              />
-                      </div> */}
-                      
+            <h3 className="text-lg font-semibold">Profile Img *</h3>                          
                        <div className="flex flex-col gap-2 border-b-2 border-gray-600 py-4 w-full">
               <input
                 type="text"
                               placeholder="image url"
-                        //   defaultValue={findData ? findData.profile_image: ''}
                 {...register("profile_image", {
                     required: "profile image is required",
                     
                   pattern: {
-                    // value: /^[a-zA-Z0-9\s,'-]*$/,
                     message: "Please enter a valid name",
                   },
                 })}
@@ -178,17 +160,16 @@ const Form = ({isError, type, createEmployee,findData ,updateEmployee,isLoading}
           </div>
        
         </div>
-        <div className="flex justify-center gap-6 mt-12 pb-6">
+        <div className="flex justify-center gap-8 mt-12 pb-6">
           <button
             disabled={isSubmitting}
             data-testid="Add"
             type="submit"
             className="bg-[#990033] text-white font-semibold py-2 px-8 rounded-lg"
-          >
-            Add
-                  </button>
+          > Add </button>
                   
-               <Link href={"/"}>   <button
+                  <Link href={"/"}>
+                      <button
             className="bg-[#210099] text-white font-semibold py-2 px-8 rounded-lg"
           >
             Cancel

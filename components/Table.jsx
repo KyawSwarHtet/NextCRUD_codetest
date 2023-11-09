@@ -1,8 +1,24 @@
 
 import Image from "next/image";
-import { BiEdit, BiTrashAlt } from "react-icons/bi"
+import { useState } from "react";
+import { BiEdit, BiTrashAlt } from "react-icons/bi";
+import ReactPaginate from 'react-paginate'
 
-export default function Table({ isError,isLoading, employees, handleEdit, handleDelete }) {
+export default function Table({ isError, isLoading, employees, handleEdit, handleDelete }) {
+
+    const [pageNumber,setPageNumber] =useState(0)
+    const usersPerPage = 10;
+    const pagesVisited = pageNumber * usersPerPage
+
+    const displayUsers = employees.slice(pagesVisited, pagesVisited + usersPerPage);
+    
+    const pageCount = Math.ceil(employees.length / usersPerPage)
+
+    const changePage = ({ selected }) => {
+        setPageNumber(selected)
+    }
+
+    console.log("displayUsers",displayUsers)
  
     if (isLoading) {
         return (
@@ -60,7 +76,7 @@ export default function Table({ isError,isLoading, employees, handleEdit, handle
                             <h2 className="bg-gray-50 text-center mt-3 ">
                                 {isError}
                             </h2>
-                        </>) : employees &&(employees.map((data, key) => 
+                        </>) : employees &&(displayUsers.map((data, key) => 
                         (<>
                         <tr className="bg-gray-50 text-center border-b-2 border-gray-200" key={key}>
                             <td className="px-5 py-2">
@@ -88,6 +104,10 @@ export default function Table({ isError,isLoading, employees, handleEdit, handle
                     </tbody>
                     </>
             </table>
+            
+            <ReactPaginate previousLabel={"Previous"} nextLabel={"Next"} pageCount={pageCount} onPageChange={changePage} containerClassName={"paginationBttns"}
+                previousClassName={"previousBttn"} nextLinkClassName={"nextBttn"} disabledClassName={"paginationDisabled"}
+                activeClassName={"paginationActive"} />
             </>
     )
 }
