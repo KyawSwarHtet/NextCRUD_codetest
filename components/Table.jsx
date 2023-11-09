@@ -18,7 +18,6 @@ export default function Table({ isError, isLoading, employees, handleEdit, handl
         setPageNumber(selected)
     }
 
-    console.log("displayUsers",displayUsers)
  
     if (isLoading) {
         return (
@@ -72,11 +71,7 @@ export default function Table({ isError, isLoading, employees, handleEdit, handl
                             />
                                 </tr>
                                 </>
-                    ) : ((employees && isError?.length > 0) ? (<>
-                            <h2 className="bg-gray-50 text-center mt-3 ">
-                                {isError}
-                            </h2>
-                        </>) : employees &&(displayUsers.map((data, key) => 
+                            ) : (employees &&(displayUsers.map((data, key) => 
                         (<>
                         <tr className="bg-gray-50 text-center border-b-2 border-gray-200" key={key}>
                             <td className="px-5 py-2">

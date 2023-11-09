@@ -24,7 +24,6 @@ const router = useRouter()
           // If data is not found in cache, fetch from the API
           console.log("fetch all data from api")
           await getAllEmployees();
-             
         }
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -54,13 +53,14 @@ const router = useRouter()
     }
   };
 
+
   return (
     <div>
       <h1 className="text-center my-4 ml-[1rem]  font-semibold text-2xl py-5 ">
          Employee List
-        </h1>
+      </h1>
       <div className='container mx-auto'>
-        <Table isError={isError} isLoading={isLoading} employees = {employees} handleEdit={handleEdit} handleDelete={handleDelete}/>
+        <Table isError={isError} isLoading={isLoading} employees = {employees && employees} handleEdit={handleEdit} handleDelete={handleDelete}/>
         </div>
     </div>
   )

@@ -84,7 +84,6 @@ const Form = ({isError, type, createEmployee,findData ,updateEmployee,isLoading}
                 id="input-example"
                 className="focus:border-none focus:outline-none"
                 placeholder="4000.00"
-                            // value={findData ? findData.employee_salary: ''}
                           allowDecimals = {false}
                               allowNegativeValue={false}
                          
@@ -112,7 +111,6 @@ const Form = ({isError, type, createEmployee,findData ,updateEmployee,isLoading}
                 type="number"
                 id="agreementdate"
                               placeholder="20"
-                        //   value={findData ? findData.employee_age: ''}
                 {...register("employee_age", {
                   required: "age is required",
                   pattern: {
